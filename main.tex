@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{scrreprt}
+\usepackage{basis/optionen}
+
+\addbibresource{literatur.bib}
+
+\title{Mein Thema}
+\author{Mein Name}
+\date{01. Januar 1970}
+\matrikelnr{111111}
+\fach{Das Fach}
+\professor{Der Professor}
+
+\begin{document}
+
+\pagenumbering{Roman}
+\input{basis/titelseite}
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents
+\listoffigures
+\listoflistings
+\input{abkuerzungen}
+\clearpage
+
+\pagenumbering{arabic}
+\onehalfspacing
+%Hier eigenen Text schreiben 
+\chapter{Einleitung}
+Mein einführender Text
+
+\chapter{Beispiele}
+Hier stehen einige Beispiele zur Verwendung der Vorlage.
+
+\section{Formatierung}
+Text kann \textbf{fett}, \textit{kursiv} oder \texttt{monospaced} geschrieben werden.
+
+\section{Zitieren}
+JavaScript ist momentan die am weitesten verbreitete Programmiersprache \parencite{stackOverflowSurvey}.
+Quellen werden in der Datei literatur.bib angegeben.
+
+\section{Abkürzungen}
+Um Abkürzungen wie \ac{IoT} zu verwenden, können diese in der Datei abkuerzungen.tex eingetragen werden.
+So wird die Abkürzung bei der ersten Verwendung ausgeschrieben und automatisch ein Abkürzungsverzeichnis generiert.
+
+\section{Abbildungen}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{abbildungen/top5_languages.png}
+    \caption[Die fünf beliebtesten Programmiersprachen]{Die fünf beliebtesten Programmiersprachen \parencite{stackOverflowSurvey}}
+    \label{fig:top5languages}
+\end{figure}
+
+Bei Abbildungen sollte zuerst der Caption-Text in eckigen Klammern angegeben werden.
+Dieser erscheint im Abbildungsverzeichnis.
+In den geschweiften Klammern kann der gleiche Text inklusive Quelle angegeben werden.
+Dieser erscheint unter der Abbildung.
+Es kann auch im Text auf \autoref{fig:top5languages} verwiesen werden.
+
+Um Quellcode einzubinden, sieht das Vorgehen ähnlich aus.
+
+\begin{listing}[h]
+    \inputminted[frame=single]{Java}{code/HelloWorld.java}
+    \unskip
+    \caption{Ein Hello World Programm in Java}
+    \label{lst:helloworld}
+\end{listing}
+
+
+\chapter{Fazit}
+Abschließende Worte
+
+%Ende des eigenen Texts
+\printbibliography
+\input{basis/erklaerung}
+\end{document}

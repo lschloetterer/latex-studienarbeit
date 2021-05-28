@@ -1,0 +1,69 @@
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[ngerman]{babel} %Sprache einstellen
+\RequirePackage[printonlyused]{acronym} %Abkürzungsverzeichnis
+\RequirePackage{graphicx} %Bilder einbinden
+\RequirePackage[newfloat]{minted} %Quellcode einbinden
+\RequirePackage[backend=biber,sorting=nyt,style=apa]{biblatex} %Zitieren
+\RequirePackage{csquotes} %Benötigt für Biblatex
+\RequirePackage[headsepline,automark,singlespacing]{scrlayer-scrpage} %Kopf- und Fußzeile setzen
+\RequirePackage[hidelinks,pdfusetitle]{hyperref} %Links im PDF
+\RequirePackage{caption} %Links am oberen Ende der Abbildung
+\RequirePackage[top=2.5cm, bottom=2cm, right=2.5cm, left=3.5cm]{geometry} %Seitenränder
+\RequirePackage{setspace} %Zeilenabstand ändern
+
+\KOMAoptions{%
+    toc=chapterentrywithdots,
+    toc=listof,
+    toc=bibliography,
+    headings=small,
+    parskip=half
+}
+
+%Schriftart Times New Roman
+\renewcommand*{\rmdefault}{ptm} 
+%Überschriften auch mit Serifenschrift
+\addtokomafont{sectioning}{\rmfamily}
+%Text unter Abbildungen kleiner
+\addtokomafont{caption}{\small}
+%Abstand Kapitelüberschrift verkleinern
+\RedeclareSectionCommand[beforeskip=0pt,afterskip=\baselineskip]{chapter} 
+%Mehr Punkte im Inhaltsverzeichnis
+\renewcommand*{\@dotsep}{1}
+
+%Abbildungsnummer richtig formatieren
+\counterwithout{figure}{chapter}
+\renewcaptionname{ngerman}{\figurename}{Abb.}
+
+%Quellcode Bezeichnungen auf Deutsch
+\SetupFloatingEnvironment{listing}{%
+    name = {Quellcode},
+    listname = {Quellcodeverzeichnis}
+}
+\counterwithout{listing}{chapter}
+
+%Literaturverzeichnis umbenennen
+\DefineBibliographyStrings{ngerman}{%
+    bibliography = {Literaturverzeichnis},
+    retrieved = {Abgerufen am}
+}
+
+%Kopf- und Fußzeilen
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ihead{\headmark}
+\ohead{\pagemark}
+\addtokomafont{pagehead}{\normalfont}
+\renewcommand*{\chaptermarkformat}{%
+    \chapapp~\thechapter\autodot:\enskip
+}
+\renewcommand*{\chapterpagestyle}{scrheadings}
+
+%Variablen für Titelseite
+\newcommand\matrikelnr{\newcommand\@matrikelnr}
+\newcommand\fach{\newcommand\@fach}
+\newcommand\professor{\newcommand\@professor}
+
+% \RequirePackage{helvet} %Schriftart Arial laden
+%Sans-Serif Schrift für Text verwenden
+% \renewcommand*{\familydefault}{\sfdefault}
