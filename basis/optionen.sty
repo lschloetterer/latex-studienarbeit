@@ -35,12 +35,12 @@
 \counterwithout{figure}{chapter}
 \renewcaptionname{ngerman}{\figurename}{Abb.}
 
-%Quellcode Bezeichnungen auf Deutsch
+%Listings
 \SetupFloatingEnvironment{listing}{%
-    name = {Quellcode},
-    listname = {Quellcodeverzeichnis}
+    listname = {Listingverzeichnis}
 }
 \counterwithout{listing}{chapter}
+\setminted{frame=single}
 
 %Literaturverzeichnis umbenennen
 \DefineBibliographyStrings{ngerman}{%
