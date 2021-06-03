@@ -3,14 +3,17 @@
 \RequirePackage[ngerman]{babel} %Sprache einstellen
 \RequirePackage[printonlyused]{acronym} %Abkürzungsverzeichnis
 \RequirePackage{graphicx} %Bilder einbinden
-\RequirePackage[newfloat]{minted} %Quellcode einbinden
 \RequirePackage[backend=biber,sorting=nyt,style=apa]{biblatex} %Zitieren
-\RequirePackage{csquotes} %Benötigt für Biblatex
 \RequirePackage[headsepline,automark,singlespacing]{scrlayer-scrpage} %Kopf- und Fußzeile setzen
 \RequirePackage[hidelinks,pdfusetitle]{hyperref} %Links im PDF
 \RequirePackage[format=hang,font=small,hypcap]{caption} %Beschriftungen kleiner, Links zeigen auf oberes Ende der Abbildung
 \RequirePackage[top=2.5cm, bottom=2cm, right=2.5cm, left=3.5cm]{geometry} %Seitenränder
 \RequirePackage{setspace} %Zeilenabstand ändern
+
+\newif\if@code %optional Quellcode einbinden
+\DeclareOption{code}{\@codetrue}
+\DeclareOption*{\PackageWarning{optionen}{Ungültiger Parameter \CurrentOption}}
+\ProcessOptions
 
 \KOMAoptions{%
     toc=chapterentrywithdots,
@@ -29,23 +32,6 @@
 %Mehr Punkte im Inhaltsverzeichnis
 \renewcommand*{\@dotsep}{1}
 
-%Abbildungsnummer richtig formatieren
-\counterwithout{figure}{chapter}
-\renewcaptionname{ngerman}{\figurename}{Abb.}
-
-%Listings
-\SetupFloatingEnvironment{listing}{%
-    listname = {Listingverzeichnis}
-}
-\counterwithout{listing}{chapter}
-\setminted{frame=single}
-
-%Literaturverzeichnis umbenennen
-\DefineBibliographyStrings{ngerman}{%
-    bibliography = {Literaturverzeichnis},
-    retrieved = {Abgerufen am}
-}
-
 %Kopf- und Fußzeilen
 \pagestyle{scrheadings}
 \clearscrheadfoot
@@ -56,6 +42,28 @@
     \chapapp~\thechapter\autodot:\enskip
 }
 \renewcommand*{\chapterpagestyle}{scrheadings}
+
+%Literaturverzeichnis umbenennen
+\DefineBibliographyStrings{ngerman}{%
+    bibliography = {Literaturverzeichnis},
+    retrieved = {Abgerufen am}
+}
+
+%Abbildungsnummer richtig formatieren
+\counterwithout{figure}{chapter}
+\renewcaptionname{ngerman}{\figurename}{Abb.}
+
+%Listings
+\if@code
+    \RequirePackage[newfloat]{minted}
+    \setminted{frame=single}
+    \SetupFloatingEnvironment{listing}{%
+        listname = {Listingverzeichnis}
+    }
+    \counterwithout{listing}{chapter}
+\fi
+
+\RequirePackage{csquotes} %Benötigt für Biblatex
 
 %Variablen für Titelseite
 \newcommand\matrikelnr{\newcommand\@matrikelnr}
