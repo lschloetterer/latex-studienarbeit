@@ -3,6 +3,7 @@
 \RequirePackage[ngerman]{babel} %Sprache einstellen
 \RequirePackage[printonlyused]{acronym} %Abkürzungsverzeichnis
 \RequirePackage{graphicx} %Bilder einbinden
+\RequirePackage{booktabs} %Tabellen formatieren
 \RequirePackage[backend=biber,sorting=nyt,style=apa]{biblatex} %Zitieren
 \RequirePackage[headsepline,automark,singlespacing]{scrlayer-scrpage} %Kopf- und Fußzeile setzen
 \RequirePackage[hidelinks,pdfusetitle]{hyperref} %Links im PDF
@@ -28,9 +29,7 @@
 %Überschriften auch mit Serifenschrift
 \addtokomafont{sectioning}{\rmfamily}
 %Abstand Kapitelüberschrift verkleinern
-\RedeclareSectionCommand[beforeskip=0pt,afterskip=\baselineskip]{chapter} 
-%Mehr Punkte im Inhaltsverzeichnis
-\renewcommand*{\@dotsep}{1}
+\RedeclareSectionCommand[beforeskip=0pt,afterskip=\baselineskip]{chapter}
 
 %Kopf- und Fußzeilen
 \pagestyle{scrheadings}
@@ -52,6 +51,10 @@
 %Abbildungsnummer richtig formatieren
 \counterwithout{figure}{chapter}
 \renewcaptionname{ngerman}{\figurename}{Abb.}
+
+%Tabellennummer richtig formatieren
+\counterwithout{table}{chapter}
+\renewcaptionname{ngerman}{\tablename}{Tab.}
 
 %Listings
 \if@code
