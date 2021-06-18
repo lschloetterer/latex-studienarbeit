@@ -56,6 +56,11 @@
 \counterwithout{table}{chapter}
 \renewcaptionname{ngerman}{\tablename}{Tab.}
 
+%Zitat aus Verzeichniseinträgen entfernen
+\BeforeStartingTOC{%
+    \renewcommand*{\parencite}{\ignorespaces\@gobble}
+}
+
 %Listings
 \if@code
     \RequirePackage[newfloat]{minted}
