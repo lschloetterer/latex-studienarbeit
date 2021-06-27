@@ -46,16 +46,19 @@
 %Literaturverzeichnis umbenennen
 \DefineBibliographyStrings{ngerman}{%
     bibliography = {Literaturverzeichnis},
-    retrieved = {Abgerufen am}
+    retrieved = {Abgerufen am},
+    nodate = {{}o.\,D.}
 }
 
 %Abbildungsnummer richtig formatieren
 \counterwithout{figure}{chapter}
 \renewcaptionname{ngerman}{\figurename}{Abb.}
+\renewcaptionname{ngerman}{\figureautorefname}{Abb.}
 
 %Tabellennummer richtig formatieren
 \counterwithout{table}{chapter}
 \renewcaptionname{ngerman}{\tablename}{Tab.}
+\renewcaptionname{ngerman}{\tableautorefname}{Tab.}
 
 %Zitat aus Verzeichniseinträgen entfernen
 \BeforeStartingTOC{%
