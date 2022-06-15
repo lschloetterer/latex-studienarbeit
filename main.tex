@@ -4,6 +4,7 @@
 \addbibresource{literatur.bib}
 
 \title{Mein Thema}
+\subtitle{Studienarbeit}
 \author{Mein Name}
 \date{01. Januar 1970}
 \matrikelnr{111111}
@@ -26,7 +27,7 @@
 
 \pagenumbering{arabic}
 \onehalfspacing
-%Hier eigenen Text schreiben 
+%Hier eigenen Text schreiben
 \chapter{Einleitung}
 Mein einführender Text
 
@@ -71,7 +72,10 @@ Um Quellcode einzubinden, sieht das Vorgehen ähnlich aus.
 Abschließende Worte
 
 %Ende des eigenen Texts
-\singlespacing
+\clearpage
+\singlespacing % evtl. entfernen
+% \pagenumbering{Roman}
+% \setcounter{page}{5}
 \printbibliography
 \input{basis/erklaerung}
 \end{document}

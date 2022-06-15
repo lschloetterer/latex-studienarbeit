@@ -1,39 +1,42 @@
 \begin{titlepage}
-\makeatletter
-\begin{center}
-    \includegraphics[width=7cm]{basis/logo_hsan}
+    \makeatletter
+    \begin{center}
+        \includegraphics[width=7cm]{basis/logo_hsan}
+        
+        \vspace{1em}
+        
+        \large{Fakultät \@fakulaet}
+        
+        \Large{Studiengang \@studiengang}
+        
+        \vspace{\stretch{1}}
+        
+        \huge{\@subtitle}
+        
+        \vspace{\stretch{1}}
+        
+        \vspace{\stretch{2}}
+        
+        \setlength{\fboxsep}{1em}
+        \framebox[\textwidth]{
+            \parbox{\textwidth}{\centering\LARGE{\textbf{\@title}}}
+        }
+    \end{center}
     
-    \vspace{1em}
+    \vspace{\stretch{2}}
     
-    \large{Fakultät \@fakulaet}
-    
-    \Large{Studiengang \@studiengang}
+    \begin{tabular}{@{} l l @{}}
+    Autor:             & \@author        \\
+    Matrikel-Nr.:      & \@matrikelnr    \\
+                       &                 \\
+    Fach:              & \@fach          \\
+    Betreuung:         & \@professor     \\
+                       &                 \\
+    Ort, Abgabetermin: & Ansbach, \@date
+    \end{tabular}
     
     \vspace{\stretch{1}}
     
-    \huge{Studienarbeit}
+    \makeatother
+    \end{titlepage}
     
-    \vspace{\stretch{1}}
-    
-    \setlength{\fboxsep}{1em}
-    \framebox[\textwidth]{
-        \Huge{\textbf{\@title}}
-    }
-\end{center}
-
-\vspace{\stretch{2}}
-
-\begin{tabular}{@{} l l @{}}
-Autor:             & \@author        \\
-Matrikel-Nr.:      & \@matrikelnr    \\
-                   &                 \\
-Fach:              & \@fach          \\
-Betreuung:         & \@professor     \\
-                   &                 \\
-Ort, Abgabetermin: & Ansbach, \@date
-\end{tabular}
-
-\vspace{\stretch{1}}
-
-\makeatother
-\end{titlepage}
